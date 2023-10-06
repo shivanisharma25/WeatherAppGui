@@ -93,10 +93,6 @@ public class WeatherApp {
         }catch(Exception e){
             e.printStackTrace();
         }
-
-
-
-
         return null;
     }
 
@@ -192,7 +188,6 @@ public class WeatherApp {
         // format and print the current date and time
         String formattedDateTime = currentDateTime.format(formatter);
         return formattedDateTime;
-
     }
 
     // convert the weather code to something more readable

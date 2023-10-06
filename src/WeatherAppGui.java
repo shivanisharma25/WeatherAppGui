@@ -1,4 +1,5 @@
 package src.assets;
+
 import org.json.simple.JSONObject;
 import src.WeatherApp;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 public class WeatherAppGui extends JFrame {
     private JSONObject weatherData;
+
     public WeatherAppGui() {
         // set up our gui and add a title
         super("Weather App");
@@ -46,8 +48,6 @@ public class WeatherAppGui extends JFrame {
         searchTextField.setFont(new Font("Dialog", Font.PLAIN, 24));
 
         add(searchTextField);
-
-
 
         // weather image
         JLabel weatherConditionImage = new JLabel(loadImage("src/assets/cloudy.png"));
@@ -105,7 +105,7 @@ public class WeatherAppGui extends JFrame {
                 String userInput = searchTextField.getText();
 
                 // validate input - remove whitespace to ensure non-empty text
-                if(userInput.replaceAll("\\s", "").length() <= 0){
+                if (userInput.replaceAll("\\s", "").length() <= 0) {
                     return;
                 }
 
@@ -118,7 +118,7 @@ public class WeatherAppGui extends JFrame {
                 String weatherCondition = (String) weatherData.get("weather_condition");
 
                 // depending on the condition, we will update the weather image that corresponds with the condition
-                switch(weatherCondition){
+                switch (weatherCondition) {
                     case "Clear":
                         weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
                         break;
@@ -150,10 +150,6 @@ public class WeatherAppGui extends JFrame {
             }
         });
         add(searchButton);
-
-
-
-
     }
 
     // used to create images in our gui components
@@ -164,11 +160,10 @@ public class WeatherAppGui extends JFrame {
 
             // returns an image icon so that our component can render it
             return new ImageIcon(image);
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Could not find resource");
         return null;
     }
-
 }
